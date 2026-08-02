@@ -9,16 +9,16 @@ export default function Home() {
     <div className="bg-background w-full h-[calc(100vh-100px)] flex items-center px-8 lg:px-16 overflow-hidden">
       <div className="grid lg:grid-cols-[1.1fr_1.4fr] gap-12 items-center w-full h-[85%] max-w-[1600px] mx-auto">
         <div className="text-left z-10 flex flex-col justify-center">
-          <p className="text-[#CC1C1C] text-[11px] lg:text-[20px] tracking-[0.25em] font-medium mb-4 uppercase">
+          <p className="text-[#CC1C1C] text-[11px] lg:text-[25px] tracking-[0.25em] font-medium mb-0 uppercase">
             {t('home.kicker')}
           </p>
           
           <h1 
-            className="text-white text-6xl lg:text-7xl xl:text-[7.5rem] leading-[0.85] mb-6 uppercase tracking-wide"
+            className="text-white text-6xl lg:text-7xl xl:text-[7.5rem] leading-[0.9] mb-6"
             style={{ 
-              fontFamily: '"Oswald", "Bebas Neue", "Arial Narrow", sans-serif',
-              fontStretch: 'condensed',
-              fontWeight: 700
+              fontFamily: '"Fraunces", serif',
+              fontOpticalSizing: 'auto',
+              fontWeight: 600
             }}
           >
             {t('home.titleLine1')}
@@ -46,7 +46,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Cột phải: Slideshow - Đảm bảo luôn full chiều cao và không bị rớt */}
         <div className="relative w-full h-full flex items-center justify-end">
           <HeroSlideshow images={['/Ava1.jpg', '/ava2.jpg', '/ava3.jpg']} />
         </div>

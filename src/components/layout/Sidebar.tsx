@@ -27,7 +27,7 @@ export default function Sidebar() {
       </div>
 
       {onMenuPage ? (
-        <nav className="relative flex flex-col gap-1 overflow-y-auto flex-1 min-h-0">
+        <nav className="relative flex flex-col gap-1 overflow-y-auto flex-1 min-h-0 custom-scrollbar">
           <NavLink
             to="/"
             className="relative px-4 py-3 rounded text-sm font-medium text-gray-300 hover:bg-surface-light hover:text-white mb-2 flex items-center gap-2 transition-colors"

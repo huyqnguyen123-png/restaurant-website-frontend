@@ -74,7 +74,7 @@ export default function Menu() {
                     )}
                   </div>
                   <div className="p-3 pr-10">
-                    <p className="text-sm font-semibold mb-1">{displayName(item)}</p>
+                    <p className="text-sm font-semibold mb-1 truncate">{displayName(item)}</p>
                     <p className="text-primary font-bold">€{item.price.toFixed(2)}</p>
                   </div>
                 </Link>
@@ -87,7 +87,7 @@ export default function Menu() {
                     addItem(item, 1)
                   }}
                   aria-label="Add to cart"
-                  className="absolute top-114 right-5 w-8 h-8 rounded-full bg-primary hover:bg-primary-dark transition-colors flex items-center justify-center text-white text-base font-bold shadow-lg"
+                  className="absolute top-4 right-5 w-8 h-8 rounded-full bg-primary hover:bg-primary-dark transition-colors flex items-center justify-center text-white text-base font-bold shadow-lg z-10"
                 >
                   +
                 </button>

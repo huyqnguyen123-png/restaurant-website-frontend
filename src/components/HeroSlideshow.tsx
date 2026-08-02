@@ -27,14 +27,13 @@ export default function HeroSlideshow({ images }: HeroSlideshowProps) {
 
     const timer = setTimeout(() => {
       goTo(index + 1, 1)
-    }, 4000)
+    }, 5000)
 
     return () => clearTimeout(timer)
   }, [index, images.length])
 
   return (
     <div className="relative w-full h-full flex flex-col justify-between">
-      {/* Khung ảnh chiếm trọn diện tích bên phải */}
       <div className="relative w-full h-[90%] overflow-hidden bg-[#0a0a0a]">
         <AnimatePresence initial={false} custom={direction} mode="wait">
           <motion.img
@@ -55,7 +54,6 @@ export default function HeroSlideshow({ images }: HeroSlideshowProps) {
         </AnimatePresence>
       </div>
 
-      {/* Thanh indicators nằm gọn gàng ở góc dưới bên trái của khung ảnh */}
       {images.length > 1 && (
         <div className="absolute bottom-4 left-6 flex items-center gap-4 z-20">
           {images.map((_, i) => (
@@ -63,13 +61,17 @@ export default function HeroSlideshow({ images }: HeroSlideshowProps) {
               key={i}
               onClick={() => goTo(i, i > index ? 1 : -1)}
               aria-label={`Go to image ${i + 1}`}
-              className="flex items-center justify-center h-4 transition-all duration-300"
+              className="flex items-center justify-center h-4"
             >
-              {i === index ? (
-                <div className="w-12 h-2 rounded-full bg-[#CC1C1C] shadow-sm" />
-              ) : (
-                <div className="w-2 h-2 rounded-full bg-[#4a4a4a] hover:bg-[#888888] transition-colors" />
-              )}
+              <motion.div
+                animate={{
+                  width: i === index ? 48 : 8,
+                  height: i === index ? 8 : 8,
+                  backgroundColor: i === index ? '#CC1C1C' : '#4a4a4a',
+                }}
+                transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                className="rounded-full"
+              />
             </button>
           ))}
         </div>
