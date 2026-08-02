@@ -1,0 +1,130 @@
+{
+  "nav": {
+    "home": "Home",
+    "menu": "Menu",
+    "reservation": "Reservation",
+    "about": "About Us",
+    "gallery": "Gallery",
+    "contact": "Contact",
+    "bookTable": "BOOK A TABLE",
+    "followUs": "FOLLOW US"
+  },
+  "home": {
+    "kicker": "キビの味",
+    "titleLine1": "KIBI",
+    "titleLine2": "FLAVOUR",
+    "description": "Embark on a culinary journey across Asia, where authentic flavors, handcrafted sushi, and premium ingredients come together in every dish.",
+    "makeReservation": "MAKE A RESERVATION",
+    "viewMenu": "VIEW MENU"
+  },
+  "menu": {
+    "title": "OUR MENU",
+    "categories": {
+      "all": "All",
+      "nigiri": "Nigiri",
+      "sashimi": "Sashimi",
+      "maki": "Maki",
+      "specialRolls": "Special Rolls",
+      "hotDishes": "Hot Dishes",
+      "desserts": "Desserts",
+      "drinks": "Drinks"
+    },
+    "viewFullMenu": "VIEW FULL MENU",
+    "backToMenu": "Back to Menu",
+    "ingredients": "Ingredients",
+    "quantity": "Quantity",
+    "addToOrder": "ADD TO ORDER"
+  },
+  "about": {
+    "title": "OUR STORY",
+    "paragraph1": "KiBiori - short for KiBi Original - is located in Offenbach, just a few minutes from the beautiful Main River, making it the perfect destination for a romantic evening. At KiBiori, our young and dedicated team is committed to providing attentive, personalized service, ensuring that every guest's wishes are met with genuine care and hospitality.",
+    "paragraph2": "Our culinary philosophy is centered around expressing our own interpretation of European-Asian fusion cuisine. Passion for Asian fusion cooking is reflected in our creativity, innovation, and ever-evolving menu, allowing us to continuously introduce new flavors and seasonal inspirations. Alongside the quality and freshness of our ingredients, we place great emphasis on the artistic presentation of every dish.",
+    "paragraph3": "Surrounded by countless Maneki-neko (the iconic Japanese lucky cats) and delicate pink cherry blossoms adorning the ceiling, KiBiori offers a unique and elegant dining atmosphere. Our premium sushi is not only crafted to deliver exceptional flavor but also designed to be a true visual masterpiece. We believe that love is not only found through taste—at KiBiori, exceptional food, heartfelt hospitality, and beautiful presentation come together in perfect harmony. Our warm dishes are prepared fresh every day using carefully selected, balanced, and locally sourced ingredients, ensuring a satisfying dining experience whether you're enjoying a leisurely lunch or a relaxing evening meal. Whether you're planning a romantic dinner for two, a gathering with friends, or a spontaneous family celebration, KiBiori provides the perfect setting for every occasion. If you prefer to celebrate at home, we also offer an exceptional catering service, bringing the KiBiori experience directly to you.",
+    "paragraph4": "If you're looking for distinctive sushi creations, innovative Asian fusion cuisine, and a relaxed yet stylish atmosphere, KiBiori is the perfect place to discover unforgettable flavors.",
+    "stats": {
+      "experience": "Years of Experience",
+      "ingredients": "Premium Ingredients",
+      "customers": "Happy Customers",
+      "specialties": "Chef Specialties"
+    }
+  },
+  "reservation": {
+    "title": "RESERVE A TABLE",
+    "description": "Book your table and enjoy an authentic Japanese dining experience.",
+    "fullName": "Full Name",
+    "fullNamePlaceholder": "Your name",
+    "email": "Email",
+    "emailPlaceholder": "Your email",
+    "phone": "Phone",
+    "phonePlaceholder": "Your phone number",
+    "date": "Date",
+    "datePlaceholder": "Select date",
+    "time": "Time",
+    "timePlaceholder": "Select time",
+    "guests": "Guests",
+    "guestsPlaceholder": "Number of guests",
+    "notesPlaceholder": "Special requests (optional)",
+    "closedOnDate": "Invalid date — we are closed on this day.",
+    "confirmButton": "CONFIRM RESERVATION"
+  },
+  "gallery": {
+    "title": "OUR GALLERY",
+    "categories": {
+      "all": "All",
+      "food": "Food",
+      "restaurant": "Restaurant",
+      "chefs": "Chefs",
+      "events": "Events"
+    },
+    "viewMore": "VIEW MORE"
+  },
+  "contact": {
+    "title": "CONTACT US",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "openingHours": "Opening Hours",
+    "fullName": "Full Name",
+    "message": "Message",
+    "messagePlaceholder": "Your message",
+    "sendButton": "SEND MESSAGE"
+  },
+  "cart": {
+    "yourOrder": "YOUR ORDER",
+    "empty": "Your cart is empty.",
+    "backToMenu": "Back to menu",
+    "remove": "Remove",
+    "subtotal": "Subtotal",
+    "total": "Total",
+    "fullName": "Full Name",
+    "fullNamePlaceholder": "Your name",
+    "phone": "Phone",
+    "phonePlaceholder": "Your phone number",
+    "pickupDate": "Pickup Date",
+    "pickupTime": "Pickup time",
+    "timePlaceholder": "Select time",
+    "closedThisDay": "Invalid date — we are closed on this day.",
+    "placeOrder": "PLACE ORDER"
+  },
+  "days": {
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday",
+    "sunday": "Sunday",
+    "closed": "Closed"
+  },
+  "bookingSuccess": {
+    "title": "THANK YOU!",
+    "message": "Your table has been successfully booked. We look forward to welcoming you.",
+    "viewReservation": "VIEW RESERVATION",
+    "backToHome": "BACK TO HOME"
+  },
+  "orderSuccess": {
+    "title": "THANK YOU!",
+    "message": "Your order has been placed successfully. We look forward to seeing you.",
+    "backToHome": "BACK TO HOME"
+  }
+}

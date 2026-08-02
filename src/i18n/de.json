@@ -1,0 +1,130 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "menu": "Speisekarte",
+    "reservation": "Reservierung",
+    "about": "Über uns",
+    "gallery": "Galerie",
+    "contact": "Kontakt",
+    "bookTable": "TISCH BUCHEN",
+    "followUs": "FOLGEN SIE UNS"
+  },
+  "home": {
+    "kicker": "キビの味",
+    "titleLine1": "KIBI",
+    "titleLine2": "GESCHMACK",
+    "description": "Erleben Sie eine kulinarische Reise durch Asien, bei der authentische Aromen, handgefertigtes Sushi und sorgfältig ausgewählte Premium-Zutaten zu einem unvergesslichen Genusserlebnis verschmelzen.",
+    "makeReservation": "TISCH RESERVIEREN",
+    "viewMenu": "SPEISEKARTE ANSEHEN"
+  },
+  "menu": {
+    "title": "UNSERE SPEISEKARTE",
+    "categories": {
+      "all": "Alle",
+      "nigiri": "Nigiri",
+      "sashimi": "Sashimi",
+      "maki": "Maki",
+      "specialRolls": "Spezialrollen",
+      "hotDishes": "Warme Gerichte",
+      "desserts": "Desserts",
+      "drinks": "Getränke"
+    },
+    "viewFullMenu": "GESAMTE SPEISEKARTE ANSEHEN",
+    "backToMenu": "Zurück zur Speisekarte",
+    "ingredients": "Zutaten",
+    "quantity": "Menge",
+    "addToOrder": "ZUR BESTELLUNG HINZUFÜGEN"
+  },
+  "about": {
+    "title": "UNSERE GESCHICHTE",
+    "paragraph1": "Das KiBiori verkürzt für - KiBi Original - befindet sich in Offenbach und nur wenige Minuten vom wunderschönen Main entfernt und lädt somit auf einen perfekten romantischen Abend ein. Dieser wird Ihnen im KiBi von einem jungen und engagierten Team begleitet, die stets darauf bedacht sind, auf alle Ihre Wünsche behutsam einzugehen.",
+    "paragraph2": "Kulinarisch, verfolgen wir das Ziel, den selbst interpretierten Stil der europäisch asiatischen Kochkunst zum vollen Ausdruck zu bringen. Die Leidenschaft für asiatische Fusionsküche spiegelt sich in unserer Dynamik und Kreativität wider, weshalb wir stets eine wechselnde Speisekarte pflegen. Neben der Qualität und Frische unserer Zutaten, liegt außerdem die Präsentation der Gerichte im Fokus.",
+    "paragraph3": "Stilistisch zwischen zahlreichen Maneki-neko, den winkenden Katzen, und rosafarbenen Kirschblüten an der Decke, fasziniert das KiBi mit erstklassigem Sushi, dass jedes Mal ein wahrer Hingucker ist, denn Liebe geht nicht nur durch den Magen, sondern Essen, Liebe und stilvolle Präsentation geht bei uns Hand in Hand. Unsere warmen Speisen werden täglich mit ausgewogenen und regionalen Produkten zubereitet, sodass Sie garantiert wohl genährt und gestärkt in den Tag starten, oder den Abend ausklingen lassen können. Ihre Abende im Kißi können entweder romantisch zu zweit genossen werden, gesellig in Gruppen oder auch einfach ein spontaner Famllienabend sein. Wir stehen Ihnen zu jedem Anlass zur Verfügung, n auch wenn Sie besondere Abende zuhause feiern möchten, bieten wir Ihnen einen außergewöhnlichen Catering-Service an.",
+    "paragraph4": "Wer also Lust auf solide und besondere Sushi-Kreationen in entspannter Atmosphäre hat, ist bei KiBiori genau am richtigen Ort.",
+    "stats": {
+      "experience": "Jahre Erfahrung",
+      "ingredients": "Erlesene Zutaten",
+      "customers": "Zufriedene Kunden",
+      "specialties": "Spezialitäten des Chefs"
+    }
+  },
+  "reservation": {
+    "title": "TISCH RESERVIEREN",
+    "description": "Reservieren Sie Ihren Tisch und genießen Sie ein authentisches japanisches Speiseerlebnis.",
+    "fullName": "Vollständiger Name",
+    "fullNamePlaceholder": "Ihr Name",
+    "email": "E-Mail",
+    "emailPlaceholder": "Ihre E-Mail",
+    "phone": "Telefon",
+    "phonePlaceholder": "Ihre Telefonnummer",
+    "date": "Datum",
+    "datePlaceholder": "Datum auswählen",
+    "time": "Uhrzeit",
+    "timePlaceholder": "Uhrzeit auswählen",
+    "guests": "Gäste",
+    "guestsPlaceholder": "Anzahl der Gäste",
+    "notesPlaceholder": "Besondere Wünsche (optional)",
+    "closedOnDate": "Ungültiges Datum — an diesem Tag haben wir geschlossen.",
+    "confirmButton": "RESERVIERUNG BESTÄTIGEN"
+  },
+  "gallery": {
+    "title": "UNSERE GALERIE",
+    "categories": {
+      "all": "Alle",
+      "food": "Essen",
+      "restaurant": "Restaurant",
+      "chefs": "Köche",
+      "events": "Veranstaltungen"
+    },
+    "viewMore": "MEHR ANZEIGEN"
+  },
+  "contact": {
+    "title": "KONTAKTIEREN SIE UNS",
+    "address": "Adresse",
+    "phone": "Telefon",
+    "email": "E-Mail",
+    "openingHours": "Öffnungszeiten",
+    "fullName": "Vollständiger Name",
+    "message": "Nachricht",
+    "messagePlaceholder": "Ihre Nachricht",
+    "sendButton": "NACHRICHT SENDEN"
+  },
+  "cart": {
+    "yourOrder": "IHRE BESTELLUNG",
+    "empty": "Ihr Warenkorb ist leer.",
+    "backToMenu": "Zur Speisekarte",
+    "remove": "Entfernen",
+    "subtotal": "Zwischensumme",
+    "total": "Gesamt",
+    "fullName": "Vollständiger Name",
+    "fullNamePlaceholder": "Ihr Name",
+    "phone": "Telefon",
+    "phonePlaceholder": "Ihre Telefonnummer",
+    "pickupDate": "Abholdatum",
+    "pickupTime": "Abholzeit",
+    "timePlaceholder": "Uhrzeit auswählen",
+    "closedThisDay": "Ungültiges Datum — an diesem Tag haben wir geschlossen.",
+    "placeOrder": "BESTELLUNG AUFGEBEN"
+  },
+  "days": {
+    "monday": "Montag",
+    "tuesday": "Dienstag",
+    "wednesday": "Mittwoch",
+    "thursday": "Donnerstag",
+    "friday": "Freitag",
+    "saturday": "Samstag",
+    "sunday": "Sonntag",
+    "closed": "Geschlossen"
+  },
+  "bookingSuccess": {
+    "title": "VIELEN DANK!",
+    "message": "Ihr Tisch wurde erfolgreich reserviert. Wir freuen uns auf Ihren Besuch.",
+    "viewReservation": "RESERVIERUNG ANSEHEN",
+    "backToHome": "ZURÜCK ZUR STARTSEITE"
+  },
+  "orderSuccess": {
+    "title": "VIELEN DANK!",
+    "message": "Ihre Bestellung wurde erfolgreich aufgegeben. Wir freuen uns auf Ihren Besuch.",
+    "backToHome": "ZURÜCK ZUR STARTSEITE"
+  }
+}
