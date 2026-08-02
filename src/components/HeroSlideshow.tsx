@@ -34,7 +34,7 @@ export default function HeroSlideshow({ images }: HeroSlideshowProps) {
 
   return (
     <div className="relative w-full h-full flex flex-col justify-between">
-      <div className="relative w-full h-[90%] overflow-hidden bg-[#0a0a0a]">
+      <div className="relative w-full h-[90%] lg:aspect-[4/3] lg:h-auto lg:max-h-full overflow-hidden bg-[#0a0a0a]">
         <AnimatePresence initial={false} custom={direction} mode="wait">
           <motion.img
             key={index}
