@@ -3,10 +3,10 @@ import { motion } from 'framer-motion'
 
 // Updated stats to match the reference design
 const STATS = [
-  { value: '10+', key: 'experience' },
+  { value: '5+', key: 'experience' },
   { value: '50+', key: 'ingredients' },
-  { value: '20K+', key: 'customers' },
-  { value: '15+', key: 'specialties' },
+  { value: '2000+', key: 'customers' },
+  { value: '100+', key: 'specialties' },
 ] as const
 
 export default function About() {

@@ -17,7 +17,7 @@ export default function Sidebar() {
   ]
 
   return (
-    <aside className="hidden lg:flex lg:flex-col lg:w-72 lg:shrink-0 border-r border-border-subtle bg-surface px-6 py-8 h-full overflow-y-auto">
+    <aside className="hidden lg:flex lg:flex-col lg:w-64 xl:w-72 lg:shrink-0 border-r border-border-subtle bg-surface px-5 xl:px-6 py-6 xl:py-8 h-full overflow-y-auto">
       <div className="flex items-center gap-2 mb-12">
         <img src="/Ava2.jpg" alt="Logo" className="w-12 h-12 rounded object-cover" />
         <div>

@@ -7,14 +7,14 @@ export default function Home() {
 
   return (
     <div className="bg-background w-full min-h-[calc(100vh-100px)] lg:h-[calc(100vh-100px)] flex items-center px-6 sm:px-8 lg:px-16 py-10 lg:py-0 overflow-hidden">
-      <div className="grid lg:grid-cols-[1.1fr_1.4fr] gap-8 sm:gap-10 lg:gap-12 items-center w-full lg:h-[85%] max-w-[1600px] mx-auto">
+      <div className="grid lg:grid-cols-[1fr_1fr] xl:grid-cols-[1.1fr_1.4fr] gap-8 sm:gap-10 lg:gap-8 xl:gap-12 items-center w-full lg:h-[85%] max-w-[1600px] mx-auto">
         <div className="text-left z-10 flex flex-col justify-center">
           <p className="text-[#CC1C1C] text-[10px] sm:text-xs md:text-sm lg:text-base tracking-[0.2em] lg:tracking-[0.25em] font-medium mb-0 uppercase">
             {t('home.kicker')}
           </p>
           
           <h1 
-            className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.95] lg:leading-[0.9] mb-4 sm:mb-6"
+            className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-8xl leading-[0.95] lg:leading-[0.9] mb-4 sm:mb-6"
             style={{ 
               fontFamily: '"Fraunces", serif',
               fontOpticalSizing: 'auto',
