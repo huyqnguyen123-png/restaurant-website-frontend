@@ -65,7 +65,8 @@
     "guestsPlaceholder": "Anzahl der Gäste",
     "notesPlaceholder": "Besondere Wünsche (optional)",
     "closedOnDate": "Ungültiges Datum — an diesem Tag haben wir geschlossen.",
-    "confirmButton": "RESERVIERUNG BESTÄTIGEN"
+    "confirmButton": "RESERVIERUNG BESTÄTIGEN",
+    "invalidPhone": "Bitte geben Sie eine gültige Telefonnummer ein."
   },
   "gallery": {
     "title": "UNSERE GALERIE",
@@ -104,7 +105,10 @@
     "pickupTime": "Abholzeit",
     "timePlaceholder": "Uhrzeit auswählen",
     "closedThisDay": "Ungültiges Datum — an diesem Tag haben wir geschlossen.",
-    "placeOrder": "BESTELLUNG AUFGEBEN"
+    "placeOrder": "BESTELLUNG AUFGEBEN",
+    "notes": "Anmerkungen",
+    "notesPlaceholder": "Besondere Wünsche (optional)",
+    "invalidPhone": "Bitte geben Sie eine gültige Telefonnummer ein."
   },
   "days": {
     "monday": "Montag",

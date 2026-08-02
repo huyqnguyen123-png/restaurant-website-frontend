@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { reservationApi } from '../api/reservationApi'
 import { getReservationTimeOptions, isClosedOnDate, formatDateDDMMYYYY } from '../utils/businessHours'
+import { isValidPhone } from '../utils/validation'
 
 function todayIsoDate(): string {
   const now = new Date()
@@ -38,16 +39,15 @@ export default function ReservationPage() {
   const closed = date !== '' && isClosedOnDate(date)
   const timeOptions = date !== '' && !closed ? getReservationTimeOptions(date) : []
 
-  // Whenever the date changes, the previously selected time may no longer
-  // be valid for the new date's shifts — clearing it forces the customer
-  // to pick a fresh, valid time rather than silently submitting a stale one.
   useEffect(() => {
     setTime('')
   }, [date])
 
+  const phoneValid = isValidPhone(phone)
+
   const isValid =
     customerName.trim() !== '' &&
-    phone.trim() !== '' &&
+    phoneValid &&
     date !== '' &&
     !closed &&
     time !== '' &&
@@ -83,7 +83,6 @@ export default function ReservationPage() {
     <div className="min-h-screen bg-black px-6 lg:px-16 pt-12 lg:pt-20 pb-16 flex items-center">
       <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 max-w-6xl mx-auto items-center w-full">
 
-        {/* Left Column: Centered vertically but nudged up slightly using -translate-y */}
         <div className="text-left self-center -translate-y-8 lg:-translate-y-12">
           <p className="text-[#CC1C1C] text-sm tracking-[0.25em] font-medium mb-4 uppercase">
             予約する
@@ -102,7 +101,6 @@ export default function ReservationPage() {
           </p>
         </div>
 
-        {/* Right Column: Form (Untouched) */}
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
           <div>
             <label className="block text-xs text-gray-400 mb-2 uppercase tracking-wide">
@@ -130,6 +128,11 @@ export default function ReservationPage() {
               className="w-full bg-surface border border-border-subtle rounded px-5 py-4 text-base focus:outline-none focus:border-primary"
               required
             />
+            {phone.trim() !== '' && !phoneValid && (
+              <p className="text-xs text-red-500 mt-1.5">
+                {t('reservation.invalidPhone') ?? 'Please enter a valid phone number.'}
+              </p>
+            )}
           </div>
 
           <div className="grid grid-cols-2 gap-4">
@@ -231,7 +234,7 @@ export default function ReservationPage() {
 
           <div>
             <label className="block text-xs text-gray-400 mb-2 uppercase tracking-wide">
-              {t('NOTES') ?? 'Notes'}
+              {t('reservation.notes') ?? 'Notes'}
             </label>
             <textarea
               value={notes}
@@ -249,9 +252,10 @@ export default function ReservationPage() {
             disabled={!isValid || submitting}
             className="w-full bg-primary hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed text-white font-medium uppercase tracking-wide text-sm py-5 rounded transition mt-2"
           >
-            {submitting ? t('reservation.submitting') ?? 'Submitting...' : t('reservation.confirmButton') ?? 'Confirm Reservation'}
+            {submitting ? 'Submitting...' : t('reservation.submit') ?? 'Book Table'}
           </button>
         </form>
+
       </div>
     </div>
   )

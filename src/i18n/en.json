@@ -65,7 +65,8 @@
     "guestsPlaceholder": "Number of guests",
     "notesPlaceholder": "Special requests (optional)",
     "closedOnDate": "Invalid date — we are closed on this day.",
-    "confirmButton": "CONFIRM RESERVATION"
+    "confirmButton": "CONFIRM RESERVATION",
+    "invalidPhone": "Please enter a valid phone number."
   },
   "gallery": {
     "title": "OUR GALLERY",
@@ -104,7 +105,10 @@
     "pickupTime": "Pickup time",
     "timePlaceholder": "Select time",
     "closedThisDay": "Invalid date — we are closed on this day.",
-    "placeOrder": "PLACE ORDER"
+    "placeOrder": "PLACE ORDER",
+    "notes": "Notes",
+    "notesPlaceholder": "Special requests (optional)",
+    "invalidPhone": "Please enter a valid phone number."
   },
   "days": {
     "monday": "Monday",

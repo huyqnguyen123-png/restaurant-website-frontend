@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { useCart } from '../context/CartContext'
 import { pickupOrderApi } from '../api/pickupOrderApi'
 import { getPickupTimeOptions, isClosedOnDate, formatDateDDMMYYYY } from '../utils/businessHours'
+import { isValidPhone } from '../utils/validation'
 
 function todayIsoDate(): string {
   return new Date().toISOString().split('T')[0]
@@ -18,6 +19,7 @@ export default function Cart() {
   const [phone, setPhone] = useState('')
   const [date, setDate] = useState('')
   const [time, setTime] = useState('')
+  const [notes, setNotes] = useState('')
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const dateInputRef = useRef<HTMLInputElement>(null)
@@ -43,10 +45,12 @@ export default function Cart() {
   const displayName = (item: { nameEn: string; nameDe: string | null }) =>
     i18n.language === 'de' && item.nameDe ? item.nameDe : item.nameEn
 
+  const phoneValid = isValidPhone(phone)
+
   const isValid =
     items.length > 0 &&
     customerName.trim() !== '' &&
-    phone.trim() !== '' &&
+    phoneValid &&
     date !== '' &&
     !closed &&
     time !== ''
@@ -64,6 +68,7 @@ export default function Cart() {
         phone: phone.trim(),
         pickupTime: `${date}T${time}:00`,
         items: items.map((i) => ({ menuItemId: i.menuItemId, quantity: i.quantity })),
+        notes: notes.trim() || undefined,
       })
       clearCart()
       navigate('/cart/success', {
@@ -168,6 +173,9 @@ export default function Cart() {
               className="w-full bg-surface border border-border-subtle rounded px-4 py-2.5 text-sm focus:outline-none focus:border-primary"
               required
             />
+            {phone.trim() !== '' && !phoneValid && (
+              <p className="text-xs text-red-500 mt-1.5">{t('cart.invalidPhone')}</p>
+            )}
           </div>
 
           <div className="grid grid-cols-2 gap-4">
@@ -231,6 +239,19 @@ export default function Cart() {
           </div>
 
           {closed && <p className="text-xs text-red-500 -mt-2 font-medium">{t('cart.closedThisDay')}</p>}
+
+          <div>
+            <label className="block text-sm text-gray-400 mb-1.5">{t('cart.notes')}</label>
+            <textarea
+              value={notes}
+              onChange={(e) => setNotes(e.target.value)}
+              placeholder={t('cart.notesPlaceholder') ?? ''}
+              rows={3}
+              className="w-full bg-surface border border-border-subtle rounded px-4 py-2.5 text-sm focus:outline-none focus:border-primary resize-none"
+            />
+          </div>
+
+          {error && <p className="text-sm text-red-400">{error}</p>}
 
           {error && <p className="text-sm text-red-400">{error}</p>}
 

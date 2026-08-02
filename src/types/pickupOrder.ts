@@ -8,6 +8,7 @@ export interface CreatePickupOrderRequest {
   phone: string
   pickupTime: string // "2026-08-05T18:30:00"
   items: PickupOrderItemRequest[]
+  notes?: string
 }
 
 export interface PickupOrderItemResponseData {
