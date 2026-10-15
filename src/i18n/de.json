@@ -7,7 +7,8 @@
     "gallery": "Galerie",
     "contact": "Kontakt",
     "bookTable": "TISCH BUCHEN",
-    "followUs": "FOLGEN SIE UNS"
+    "followUs": "FOLGEN SIE UNS",
+    "order": "Bestellen"
   },
   "home": {
     "kicker": "キビの味",
@@ -132,5 +133,9 @@
     "title": "VIELEN DANK!",
     "message": "Ihre Bestellung wurde erfolgreich aufgegeben. Wir freuen uns auf Ihren Besuch.",
     "backToHome": "ZURÜCK ZUR STARTSEITE"
+  },
+  "order": {
+    "title": "ONLINE BESTELLEN",
+    "backToOrder": "Zurück zur Bestellung"
   }
 }

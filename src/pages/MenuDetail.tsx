@@ -37,13 +37,13 @@ export default function MenuDetail() {
 
   const handleAddToOrder = () => {
     addItem(item, quantity)
-    navigate('/menu')
+    navigate('/order')
   }
 
   return (
     <div className="px-4 lg:px-12 pt-4 pb-32 lg:py-12">
-      <Link to="/menu" className="text-sm text-gray-400 hover:text-white mb-4 lg:mb-6 inline-flex items-center h-10">
-        ← {t('menu.backToMenu')}
+      <Link to="/order" className="text-sm text-gray-400 hover:text-white mb-4 lg:mb-6 inline-flex items-center h-10">
+        ← {t('order.backToOrder')}
       </Link>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">

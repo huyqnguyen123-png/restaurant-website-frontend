@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { useMenuNav } from '../../context/MenuNavContext'
@@ -6,10 +6,15 @@ import { useMenuNav } from '../../context/MenuNavContext'
 export default function Sidebar() {
   const { t } = useTranslation()
   const { categories, activeCategory, setActiveCategory, onMenuPage } = useMenuNav()
+  const { pathname } = useLocation()
+  const switchLink = pathname.startsWith('/order')
+    ? { label: t('nav.menu'), path: '/menu' }
+    : { label: t('nav.order'), path: '/order' }
 
   const navItems = [
     { label: t('nav.home'), path: '/' },
     { label: t('nav.menu'), path: '/menu' },
+    { label: t('nav.order'), path: '/order' },
     { label: t('nav.reservation'), path: '/reservation' },
     { label: t('nav.about'), path: '/about' },
     { label: t('nav.gallery'), path: '/gallery' },
@@ -35,6 +40,13 @@ export default function Sidebar() {
             ← {t('nav.home')}
           </NavLink>
 
+          <NavLink
+            to={switchLink.path}
+            className="relative px-4 py-3 rounded text-sm font-medium text-gray-300 hover:bg-surface-light hover:text-white flex items-center gap-2 transition-colors"
+          >
+            {switchLink.label} →
+          </NavLink>
+          
           <div className="h-px bg-border-subtle my-2" />
 
           <button

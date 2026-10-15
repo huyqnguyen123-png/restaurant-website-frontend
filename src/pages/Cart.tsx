@@ -91,7 +91,7 @@ export default function Cart() {
       <div className="px-4 lg:px-12 py-16 lg:py-24 text-center">
         <p className="text-gray-400 mb-6">{t('cart.empty')}</p>
         <Link
-          to="/menu"
+          to="/order"
           className="inline-block bg-primary hover:bg-primary-dark transition-colors font-semibold px-6 py-3 rounded"
         >
           {t('cart.backToMenu')}

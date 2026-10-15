@@ -28,6 +28,7 @@ export default function MobileNav() {
   const navItems = [
     { label: t('nav.home'), path: '/' },
     { label: t('nav.menu'), path: '/menu' },
+    { label: t('nav.order'), path: '/order' },
     { label: t('nav.reservation'), path: '/reservation' },
     { label: t('nav.about'), path: '/about' },
     { label: t('nav.gallery'), path: '/gallery' },

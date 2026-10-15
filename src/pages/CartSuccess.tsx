@@ -15,7 +15,7 @@ export default function CartSuccess() {
   const state = location.state as LocationState | undefined
 
   if (!state) {
-    return <Navigate to="/menu" replace />
+    return <Navigate to="/order" replace />
   }
 
   return (
