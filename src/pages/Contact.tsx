@@ -26,7 +26,7 @@ export default function Contact() {
     <div className="px-4 lg:px-12 py-6 lg:py-12">
       <h1 className="font-display text-3xl lg:text-4xl mb-8">{t('contact.title')}</h1>
 
-      <div className="grid lg:grid-cols-2 gap-10">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
         <div className="flex flex-col gap-6">
           <div>
             <p className="text-sm text-gray-400 mb-1">{t('contact.address')}</p>
@@ -34,13 +34,13 @@ export default function Contact() {
           </div>
           <div>
             <p className="text-sm text-gray-400 mb-1">{t('contact.phone')}</p>
-            <a href={`tel:${RESTAURANT_PHONE.replace(/\s/g, '')}`} className="font-medium hover:text-primary transition-colors">
+            <a href={`tel:${RESTAURANT_PHONE.replace(/\s/g, '')}`} className="inline-block py-1 font-medium text-primary lg:text-white hover:text-primary transition-colors">
               {RESTAURANT_PHONE}
             </a>
           </div>
           <div>
             <p className="text-sm text-gray-400 mb-1">{t('contact.email')}</p>
-            <a href={`mailto:${RESTAURANT_EMAIL}`} className="font-medium hover:text-primary transition-colors">
+            <a href={`mailto:${RESTAURANT_EMAIL}`} className="inline-block py-1 font-medium break-all hover:text-primary transition-colors">
               {RESTAURANT_EMAIL}
             </a>
           </div>
@@ -60,7 +60,7 @@ export default function Contact() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder={t('Full Name') ?? ''}
-              className="w-full bg-surface border border-border-subtle rounded px-4 py-2.5 text-sm focus:outline-none focus:border-primary"
+              className="w-full bg-surface border border-border-subtle rounded px-4 py-3 text-base sm:text-sm focus:outline-none focus:border-primary"
               required
             />
           </div>
@@ -72,7 +72,7 @@ export default function Contact() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder={t('you@example.com') ?? ''}
-              className="w-full bg-surface border border-border-subtle rounded px-4 py-2.5 text-sm focus:outline-none focus:border-primary"
+              className="w-full bg-surface border border-border-subtle rounded px-4 py-3 text-base sm:text-sm focus:outline-none focus:border-primary"
               required
             />
           </div>
@@ -84,7 +84,7 @@ export default function Contact() {
               onChange={(e) => setMessage(e.target.value)}
               placeholder={t('contact.messagePlaceholder') ?? ''}
               rows={6}
-              className="w-full bg-surface border border-border-subtle rounded px-4 py-2.5 text-sm focus:outline-none focus:border-primary resize-none"
+              className="w-full bg-surface border border-border-subtle rounded px-4 py-3 text-base sm:text-sm focus:outline-none focus:border-primary resize-none"
               required
             />
           </div>
@@ -92,7 +92,7 @@ export default function Contact() {
           <button
             type="submit"
             disabled={!isValid}
-            className="bg-primary hover:bg-primary-dark disabled:opacity-40 disabled:cursor-not-allowed transition-colors font-semibold px-6 py-3 rounded"
+            className="bg-primary hover:bg-primary-dark disabled:opacity-40 disabled:cursor-not-allowed transition-colors font-semibold px-6 py-4 rounded"
           >
             {t('contact.sendButton')}
           </button>

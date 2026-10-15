@@ -33,7 +33,8 @@
     "backToMenu": "Zurück zur Speisekarte",
     "ingredients": "Zutaten",
     "quantity": "Menge",
-    "addToOrder": "ZUR BESTELLUNG HINZUFÜGEN"
+    "addToOrder": "ZUR BESTELLUNG HINZUFÜGEN",
+    "viewCart": "Bestellung ansehen"
   },
   "about": {
     "title": "UNSERE GESCHICHTE",
@@ -66,7 +67,8 @@
     "notesPlaceholder": "Besondere Wünsche (optional)",
     "closedOnDate": "Ungültiges Datum — an diesem Tag haben wir geschlossen.",
     "confirmButton": "RESERVIERUNG BESTÄTIGEN",
-    "invalidPhone": "Bitte geben Sie eine gültige Telefonnummer ein."
+    "invalidPhone": "Bitte geben Sie eine gültige Telefonnummer ein.",
+    "notes": "Anmerkungen"
   },
   "gallery": {
     "title": "UNSERE GALERIE",

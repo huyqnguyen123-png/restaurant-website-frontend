@@ -80,15 +80,15 @@ export default function ReservationPage() {
   }
 
   return (
-    <div className="min-h-screen bg-black px-6 lg:px-16 pt-12 lg:pt-20 pb-16 flex items-center">
+    <div className="lg:min-h-screen bg-black px-4 sm:px-6 lg:px-16 pt-8 lg:pt-20 pb-[max(4rem,env(safe-area-inset-bottom))] flex items-center">
       <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 max-w-6xl mx-auto items-center w-full">
 
-        <div className="text-left self-center -translate-y-8 lg:-translate-y-12">
-          <p className="text-[#CC1C1C] text-sm tracking-[0.25em] font-medium mb-4 uppercase">
+        <div className="text-left self-center lg:-translate-y-12">
+          <p className="text-[#CC1C1C] text-sm tracking-[0.25em] font-medium mb-3 lg:mb-4 uppercase">
             予約する
           </p>
           <h1 
-            className="text-white text-5xl lg:text-[4rem] leading-[1.1] mb-8 uppercase tracking-wide max-w-md"
+            className="text-white text-4xl sm:text-5xl lg:text-[4rem] leading-[1.1] mb-4 lg:mb-8 uppercase tracking-wide max-w-md"
             style={{ 
               fontFamily: '"Oswald", "Bebas Neue", "Arial Narrow", sans-serif',
               fontStretch: 'condensed'
@@ -101,7 +101,7 @@ export default function ReservationPage() {
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-5 lg:gap-6 min-w-0">
           <div>
             <label className="block text-xs text-gray-400 mb-2 uppercase tracking-wide">
               {t('reservation.fullName')}
@@ -135,7 +135,7 @@ export default function ReservationPage() {
             )}
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-4">
             <div>
               <label className="block text-xs text-gray-400 mb-2 uppercase tracking-wide">
                 {t('reservation.date')}
@@ -154,10 +154,10 @@ export default function ReservationPage() {
                 <button
                   type="button"
                   onClick={openDatePicker}
-                  className="relative z-10 w-full bg-surface border border-border-subtle rounded px-5 py-4 text-base text-left focus:outline-none focus:border-primary flex items-center justify-between"
+                  className="relative z-10 w-full bg-surface border border-border-subtle rounded px-4 sm:px-5 py-4 text-base text-left focus:outline-none focus:border-primary flex items-center justify-between"
                 >
                   <span className={date ? 'text-white' : 'text-gray-500'}>
-                    {date ? formatDateDDMMYYYY(date) : 'Select date'}
+                    {date ? formatDateDDMMYYYY(date) : t('reservation.datePlaceholder')}
                   </span>
                   <svg
                     className="w-5 h-5 text-gray-400"
@@ -184,10 +184,10 @@ export default function ReservationPage() {
                   value={time}
                   onChange={(e) => setTime(e.target.value)}
                   disabled={!date || closed}
-                  className="w-full bg-surface border border-border-subtle rounded px-5 py-4 text-base appearance-none focus:outline-none focus:border-primary disabled:opacity-50"
+                  className="w-full bg-surface border border-border-subtle rounded pl-4 pr-10 sm:pl-5 py-4 text-base appearance-none focus:outline-none focus:border-primary disabled:opacity-50"
                   required
                 >
-                  <option value="">Select time</option>
+                  <option value="">{t('reservation.timePlaceholder')}</option>
                   {timeOptions.map((opt) => (
                     <option key={opt} value={opt}>
                       {opt}
@@ -195,7 +195,7 @@ export default function ReservationPage() {
                   ))}
                 </select>
                 <svg
-                  className="w-5 h-5 text-gray-400 absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none"
+                  className="w-5 h-5 text-gray-400 absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 pointer-events-none"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
@@ -211,11 +211,11 @@ export default function ReservationPage() {
             <label className="block text-xs text-gray-400 mb-2 uppercase tracking-wide">
               {t('reservation.guests')}
             </label>
-            <div className="flex items-center justify-between bg-surface border border-border-subtle rounded px-5 py-3.5">
+            <div className="flex items-center justify-between bg-surface border border-border-subtle rounded px-3 sm:px-5 py-2.5">
               <button
                 type="button"
                 onClick={() => setPartySize((n) => Math.max(1, n - 1))}
-                className="w-9 h-9 rounded-full border border-border-subtle hover:border-primary transition-colors flex items-center justify-center text-lg text-gray-300 hover:text-white"
+                className="w-11 h-11 rounded-full border border-border-subtle hover:border-primary transition-colors flex items-center justify-center text-lg text-gray-300 hover:text-white"
                 aria-label="Decrease guests"
               >
                 −
@@ -224,7 +224,7 @@ export default function ReservationPage() {
               <button
                 type="button"
                 onClick={() => setPartySize((n) => n + 1)}
-                className="w-9 h-9 rounded-full border border-border-subtle hover:border-primary transition-colors flex items-center justify-center text-lg text-gray-300 hover:text-white"
+                className="w-11 h-11 rounded-full border border-border-subtle hover:border-primary transition-colors flex items-center justify-center text-lg text-gray-300 hover:text-white"
                 aria-label="Increase guests"
               >
                 +
@@ -234,12 +234,12 @@ export default function ReservationPage() {
 
           <div>
             <label className="block text-xs text-gray-400 mb-2 uppercase tracking-wide">
-              {t('reservation.notes') ?? 'Notes'}
+              {t('reservation.notes')}
             </label>
             <textarea
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
-              placeholder={t('reservation.notesPlaceholder') ?? 'Special requests (optional)'}
+              placeholder={t('reservation.notesPlaceholder')}
               rows={3}
               className="w-full bg-surface border border-border-subtle rounded px-5 py-4 text-base focus:outline-none focus:border-primary resize-none"
             />
@@ -252,7 +252,7 @@ export default function ReservationPage() {
             disabled={!isValid || submitting}
             className="w-full bg-primary hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed text-white font-medium uppercase tracking-wide text-sm py-5 rounded transition mt-2"
           >
-            {submitting ? 'Submitting...' : t('reservation.submit') ?? 'Book Table'}
+            {submitting ? '...' : t('reservation.confirmButton')}
           </button>
         </form>
 

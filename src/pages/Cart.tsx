@@ -104,15 +104,15 @@ export default function Cart() {
     <div className="px-4 lg:px-12 py-6 lg:py-12">
       <h1 className="font-display text-3xl lg:text-4xl mb-8">{t('cart.yourOrder')}</h1>
 
-      <div className="grid lg:grid-cols-2 gap-10">
-        <div className="flex flex-col gap-3">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
+        <div className="flex flex-col gap-3 min-w-0">
           {items.map((item) => (
             <div
               key={item.menuItemId}
-              className="flex items-center justify-between gap-3 bg-surface border border-border-subtle rounded-lg p-4"
+              className="flex flex-wrap items-center justify-between gap-x-3 gap-y-3 bg-surface border border-border-subtle rounded-lg p-4"
             >
-              <div className="min-w-0">
-                <p className="text-sm font-semibold truncate">{displayName(item)}</p>
+              <div className="min-w-0 basis-full sm:basis-auto sm:flex-1">
+                <p className="text-sm font-semibold line-clamp-2">{displayName(item)}</p>
                 <p className="text-primary text-sm font-bold">€{item.price.toFixed(2)}</p>
               </div>
 
@@ -120,15 +120,15 @@ export default function Cart() {
                 <button
                   type="button"
                   onClick={() => updateQuantity(item.menuItemId, item.quantity - 1)}
-                  className="w-7 h-7 rounded bg-surface-light border border-border-subtle text-sm"
+                  className="w-10 h-10 rounded bg-surface-light border border-border-subtle text-base"
                 >
                   −
                 </button>
-                <span className="text-sm font-semibold w-5 text-center">{item.quantity}</span>
+                <span className="text-sm font-semibold w-6 text-center tabular-nums">{item.quantity}</span>
                 <button
                   type="button"
                   onClick={() => updateQuantity(item.menuItemId, item.quantity + 1)}
-                  className="w-7 h-7 rounded bg-surface-light border border-border-subtle text-sm"
+                  className="w-10 h-10 rounded bg-surface-light border border-border-subtle text-base"
                 >
                   +
                 </button>
@@ -137,7 +137,7 @@ export default function Cart() {
               <button
                 type="button"
                 onClick={() => removeItem(item.menuItemId)}
-                className="text-gray-500 hover:text-red-400 text-xs shrink-0"
+                className="text-gray-500 hover:text-red-400 text-xs shrink-0 h-10 px-2"
               >
                 {t('cart.remove')}
               </button>
@@ -150,7 +150,7 @@ export default function Cart() {
           </div>
         </div>
 
-        <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-5 min-w-0">
           <div>
             <label className="block text-sm text-gray-400 mb-1.5">{t('cart.fullName')}</label>
             <input
@@ -158,7 +158,7 @@ export default function Cart() {
               value={customerName}
               onChange={(e) => setCustomerName(e.target.value)}
               placeholder={t('cart.fullNamePlaceholder') ?? ''}
-              className="w-full bg-surface border border-border-subtle rounded px-4 py-2.5 text-sm focus:outline-none focus:border-primary"
+              className="w-full bg-surface border border-border-subtle rounded px-4 py-3 text-base sm:text-sm focus:outline-none focus:border-primary"
               required
             />
           </div>
@@ -170,7 +170,7 @@ export default function Cart() {
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               placeholder={t('cart.phonePlaceholder') ?? ''}
-              className="w-full bg-surface border border-border-subtle rounded px-4 py-2.5 text-sm focus:outline-none focus:border-primary"
+              className="w-full bg-surface border border-border-subtle rounded px-4 py-3 text-base sm:text-sm focus:outline-none focus:border-primary"
               required
             />
             {phone.trim() !== '' && !phoneValid && (
@@ -178,7 +178,7 @@ export default function Cart() {
             )}
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-4">
             <div>
               <label className="block text-sm text-gray-400 mb-1.5">{t('cart.pickupDate')}</label>
               <div className="relative">
@@ -195,7 +195,7 @@ export default function Cart() {
                 <button
                   type="button"
                   onClick={openDatePicker}
-                  className="relative z-10 w-full bg-surface border border-border-subtle rounded px-4 py-2.5 text-sm text-left focus:outline-none focus:border-primary flex items-center justify-between"
+                  className="relative z-10 w-full bg-surface border border-border-subtle rounded px-4 py-3 text-base sm:text-sm text-left focus:outline-none focus:border-primary flex items-center justify-between"
                 >
                   <span className={date ? 'text-white' : 'text-gray-500'}>
                     {date ? formatDateDDMMYYYY(date) : 'dd/mm/yyyy'}
@@ -223,7 +223,7 @@ export default function Cart() {
                 value={time}
                 onChange={(e) => setTime(e.target.value)}
                 disabled={date === '' || closed}
-                className="w-full bg-surface border border-border-subtle rounded px-4 py-2.5 text-sm focus:outline-none focus:border-primary disabled:opacity-40"
+                className="w-full bg-surface border border-border-subtle rounded px-4 py-3 text-base sm:text-sm focus:outline-none focus:border-primary disabled:opacity-40"
                 required
               >
                 <option value="" disabled>
@@ -247,18 +247,16 @@ export default function Cart() {
               onChange={(e) => setNotes(e.target.value)}
               placeholder={t('cart.notesPlaceholder') ?? ''}
               rows={3}
-              className="w-full bg-surface border border-border-subtle rounded px-4 py-2.5 text-sm focus:outline-none focus:border-primary resize-none"
+              className="w-full bg-surface border border-border-subtle rounded px-4 py-3 text-base sm:text-sm focus:outline-none focus:border-primary resize-none"
             />
           </div>
-
-          {error && <p className="text-sm text-red-400">{error}</p>}
 
           {error && <p className="text-sm text-red-400">{error}</p>}
 
           <button
             type="submit"
             disabled={!isValid || submitting}
-            className="bg-primary hover:bg-primary-dark disabled:opacity-40 disabled:cursor-not-allowed transition-colors font-semibold px-6 py-3 rounded"
+            className="bg-primary hover:bg-primary-dark disabled:opacity-40 disabled:cursor-not-allowed transition-colors font-semibold px-6 py-4 rounded"
           >
             {submitting ? '...' : t('cart.placeOrder')}
           </button>

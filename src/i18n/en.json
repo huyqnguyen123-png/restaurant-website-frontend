@@ -33,7 +33,8 @@
     "backToMenu": "Back to Menu",
     "ingredients": "Ingredients",
     "quantity": "Quantity",
-    "addToOrder": "ADD TO ORDER"
+    "addToOrder": "ADD TO ORDER",
+    "viewCart": "View order"
   },
   "about": {
     "title": "OUR STORY",
@@ -66,7 +67,8 @@
     "notesPlaceholder": "Special requests (optional)",
     "closedOnDate": "Invalid date — we are closed on this day.",
     "confirmButton": "CONFIRM RESERVATION",
-    "invalidPhone": "Please enter a valid phone number."
+    "invalidPhone": "Please enter a valid phone number.",
+    "notes": "Notes"
   },
   "gallery": {
     "title": "OUR GALLERY",

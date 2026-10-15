@@ -35,14 +35,14 @@ export default function Gallery() {
 
   return (
     <div className="px-4 lg:px-12 py-6 lg:py-12">
-      <h1 className="font-display text-3xl lg:text-4xl mb-8">{t('gallery.title')}</h1>
+      <h1 className="font-display text-3xl lg:text-4xl mb-4 lg:mb-8">{t('gallery.title')}</h1>
 
-      <div className="flex flex-wrap gap-2 mb-8">
+      <div className="flex gap-2 mb-6 lg:mb-8 -mx-4 px-4 lg:mx-0 lg:px-0 overflow-x-auto no-scrollbar lg:flex-wrap">
         {CATEGORIES.map((cat) => (
           <button
             key={cat.key}
             onClick={() => setActiveCategory(cat.key)}
-            className={`px-4 py-2 rounded text-sm font-medium transition-colors ${
+            className={`shrink-0 px-4 h-10 rounded text-sm font-medium whitespace-nowrap transition-colors ${
               activeCategory === cat.key ? 'bg-primary text-white' : 'bg-surface text-gray-300 hover:text-white'
             }`}
           >
@@ -58,7 +58,7 @@ export default function Gallery() {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.98 }}
           transition={{ duration: 0.2 }}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4"
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3 lg:gap-4"
         >
           {filteredImages.map((img, index) => (
             <motion.button

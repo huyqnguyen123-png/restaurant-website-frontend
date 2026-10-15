@@ -12,8 +12,8 @@ export default function Menu() {
   const { t, i18n } = useTranslation()
   const [items, setItems] = useState<MenuItem[]>([])
   const [loading, setLoading] = useState(true)
-  const { activeCategory, setCategories, setActiveCategory, setOnMenuPage } = useMenuNav()
-  const { addItem } = useCart()
+  const { categories, activeCategory, setCategories, setActiveCategory, setOnMenuPage } = useMenuNav()
+  const { addItem, totalItemCount, subtotal } = useCart()
 
   useEffect(() => {
     menuApi
@@ -44,9 +44,33 @@ export default function Menu() {
     return <div className="px-4 lg:px-12 py-12 text-gray-400">Loading...</div>
   }
 
+  const categoryOptions = [
+    { key: 'all', label: t('menu.categories.all') },
+    ...categories.map((c) => ({ key: c, label: c })),
+  ]
+
   return (
-    <div className="px-4 lg:px-12 py-6 lg:py-12">
-      <h1 className="font-display text-3xl lg:text-4xl mb-8">{t('menu.title')}</h1>
+    <div className={`px-4 lg:px-12 py-6 lg:py-12 ${totalItemCount > 0 ? 'pb-28 lg:pb-12' : ''}`}>
+      <h1 className="font-display text-3xl lg:text-4xl mb-4 lg:mb-8">{t('menu.title')}</h1>
+
+      {/* Category chips — phones/tablets only; on desktop the sidebar shows
+          the same list. Sticks just below the 56px mobile header. */}
+      <div className="lg:hidden sticky top-14 z-30 -mx-4 px-4 py-3 mb-4 bg-background/95 backdrop-blur-xl">
+        <div className="flex gap-2 overflow-x-auto no-scrollbar">
+          {categoryOptions.map((cat) => (
+            <button
+              key={cat.key}
+              type="button"
+              onClick={() => setActiveCategory(cat.key)}
+              className={`shrink-0 px-4 h-10 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${
+                activeCategory === cat.key ? 'bg-primary text-white' : 'bg-surface text-gray-300'
+              }`}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </div>
+      </div>
 
       <AnimatePresence mode="wait">
         <motion.div
@@ -55,7 +79,7 @@ export default function Menu() {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.98 }}
           transition={{ duration: 0.2, ease: 'easeInOut' }}
-          className="grid grid-cols-2 lg:grid-cols-3 gap-4"
+          className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4"
         >
           {filteredItems.map((item, index) => (
             <motion.div
@@ -73,8 +97,8 @@ export default function Menu() {
                       <span className="text-gray-600 text-xs">No image</span>
                     )}
                   </div>
-                  <div className="p-3 pr-10">
-                    <p className="text-sm font-semibold mb-1 truncate">{displayName(item)}</p>
+                  <div className="p-3">
+                    <p className="text-sm font-semibold mb-1 line-clamp-2 min-h-10">{displayName(item)}</p>
                     <p className="text-primary font-bold">€{item.price.toFixed(2)}</p>
                   </div>
                 </Link>
@@ -87,7 +111,7 @@ export default function Menu() {
                     addItem(item, 1)
                   }}
                   aria-label="Add to cart"
-                  className="absolute top-4 right-5 w-8 h-8 rounded-full bg-primary hover:bg-primary-dark transition-colors flex items-center justify-center text-white text-base font-bold shadow-lg z-10"
+                  className="absolute top-2 right-2 w-10 h-10 rounded-full bg-primary hover:bg-primary-dark active:scale-90 transition flex items-center justify-center text-white text-lg font-bold shadow-lg z-10"
                 >
                   +
                 </button>
@@ -99,6 +123,24 @@ export default function Menu() {
           )}
         </motion.div>
       </AnimatePresence>
+
+      {/* Mobile cart bar — keeps the order one tap away while browsing. */}
+      {totalItemCount > 0 && (
+        <div className="lg:hidden fixed inset-x-0 bottom-0 z-30 px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] bg-gradient-to-t from-background via-background/95 to-transparent">
+          <Link
+            to="/cart"
+            className="flex items-center justify-between w-full h-14 px-5 rounded-lg bg-primary active:bg-primary-dark text-white font-semibold shadow-lg shadow-black/40"
+          >
+            <span className="flex items-center gap-3">
+              <span className="min-w-7 h-7 px-2 rounded-full bg-white/20 flex items-center justify-center text-sm">
+                {totalItemCount}
+              </span>
+              {t('menu.viewCart')}
+            </span>
+            <span>€{subtotal.toFixed(2)}</span>
+          </Link>
+        </div>
+      )}
     </div>
   )
 }

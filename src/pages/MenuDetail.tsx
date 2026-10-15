@@ -41,14 +41,14 @@ export default function MenuDetail() {
   }
 
   return (
-    <div className="px-4 lg:px-12 py-6 lg:py-12">
-      <Link to="/menu" className="text-sm text-gray-400 hover:text-white mb-6 inline-block">
+    <div className="px-4 lg:px-12 pt-4 pb-32 lg:py-12">
+      <Link to="/menu" className="text-sm text-gray-400 hover:text-white mb-4 lg:mb-6 inline-flex items-center h-10">
         ← {t('menu.backToMenu')}
       </Link>
 
-      <div className="grid lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
         <div>
-          <div className="aspect-square bg-surface border border-border-subtle rounded-lg flex items-center justify-center overflow-hidden">
+          <div className="aspect-[4/3] sm:aspect-square bg-surface border border-border-subtle rounded-lg flex items-center justify-center overflow-hidden">
             {item.imageUrl ? (
               <img src={item.imageUrl} alt={displayName} className="w-full h-full object-cover" />
             ) : (
@@ -58,7 +58,7 @@ export default function MenuDetail() {
         </div>
 
         <div>
-          <h1 className="font-display text-3xl mb-2">{displayName}</h1>
+          <h1 className="font-display text-2xl sm:text-3xl mb-2">{displayName}</h1>
           <p className="text-primary text-2xl font-bold mb-6">€{item.price.toFixed(2)}</p>
 
           {displayDescription && (
@@ -68,29 +68,35 @@ export default function MenuDetail() {
             </div>
           )}
 
-          <p className="text-sm text-gray-400 mb-2">{t('menu.quantity')}</p>
-          <div className="flex items-center gap-4 mb-8">
+          {/* On phones the quantity stepper and button are pinned to the
+              bottom of the screen so they're always within thumb reach. */}
+          <div className="fixed inset-x-0 bottom-0 z-30 flex items-center gap-3 px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] bg-background/95 backdrop-blur-xl border-t border-border-subtle lg:static lg:z-auto lg:block lg:p-0 lg:bg-transparent lg:backdrop-blur-none lg:border-0">
+            <p className="hidden lg:block text-sm text-gray-400 mb-2">{t('menu.quantity')}</p>
+            <div className="flex items-center gap-2 lg:gap-4 lg:mb-8 shrink-0">
+              <button
+                onClick={() => setQuantity((q) => Math.max(1, q - 1))}
+                className="w-11 h-11 rounded bg-surface border border-border-subtle text-lg"
+                aria-label="Decrease quantity"
+              >
+                −
+              </button>
+              <span className="text-lg font-semibold w-6 text-center">{quantity}</span>
+              <button
+                onClick={() => setQuantity((q) => q + 1)}
+                className="w-11 h-11 rounded bg-surface border border-border-subtle text-lg"
+                aria-label="Increase quantity"
+              >
+                +
+              </button>
+            </div>
+
             <button
-              onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-              className="w-10 h-10 rounded bg-surface border border-border-subtle text-lg"
+              onClick={handleAddToOrder}
+              className="flex-1 lg:flex-none w-full lg:w-auto min-h-12 bg-primary hover:bg-primary-dark transition-colors text-sm lg:text-base leading-tight font-semibold px-3 lg:px-8 py-2 rounded"
             >
-              −
-            </button>
-            <span className="text-lg font-semibold w-6 text-center">{quantity}</span>
-            <button
-              onClick={() => setQuantity((q) => q + 1)}
-              className="w-10 h-10 rounded bg-surface border border-border-subtle text-lg"
-            >
-              +
+              {t('menu.addToOrder')} · €{(item.price * quantity).toFixed(2)}
             </button>
           </div>
-
-          <button
-            onClick={handleAddToOrder}
-            className="w-full lg:w-auto bg-primary hover:bg-primary-dark transition-colors font-semibold px-8 py-3 rounded"
-          >
-            {t('menu.addToOrder')}
-          </button>
         </div>
       </div>
     </div>
